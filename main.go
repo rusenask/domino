@@ -25,9 +25,12 @@ func main() {
 			if unicode.IsSpace(r) {
 				r = '-'
 			}
+			// check whether whether rune is in allowed characters string
 			if !strings.ContainsRune(allowedChars, r) {
+				// if rune not allowed - skipping it and moving forward
 				continue
 			}
+			// appending rune to the slice
 			newText = append(newText, r)
 		}
 		// converting []rune slice to a string and outputing
