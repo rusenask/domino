@@ -25,7 +25,16 @@ func removeWhites(text string) string {
 	}
 	return string(newText)
 }
+
 func main() {
+	// concatenating tlds into one string
+	defaultTlds := strings.Join(tlds, ", ")
+	// supplying default names to topLevelDomains
+	var topLevelDomains = flag.String("tlds", defaultTlds, "Top level domains")
+	flag.Parse() // parse the flag
+
+	newTlds := strings.Split(*topLevelDomains, ",")
+	// Seeding randomizer
 	rand.Seed(time.Now().UTC().UnixNano())
 	s := bufio.NewScanner(os.Stdin)
 	for s.Scan() {
