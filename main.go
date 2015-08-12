@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"math/rand"
 	"os"
@@ -54,6 +55,6 @@ func main() {
 			newText = append(newText, r)
 		}
 		// converting []rune slice to a string and outputing
-		fmt.Println(string(newText) + "." + tlds[rand.Intn(len(tlds))])
+		fmt.Println(removeWhites(string(newText) + "." + newTlds[rand.Intn(len(newTlds))]))
 	}
 }
