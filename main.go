@@ -14,6 +14,17 @@ var tlds = []string{"com", "net", "io"}
 
 const allowedChars = "abcdefghijklmnopqrstuvwxyz0123456789_-"
 
+func removeWhites(text string) string {
+	var newText []rune
+	for _, r := range text {
+		if unicode.IsSpace(r) {
+			continue
+		}
+		// appending rune to the slice
+		newText = append(newText, r)
+	}
+	return string(newText)
+}
 func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	s := bufio.NewScanner(os.Stdin)
